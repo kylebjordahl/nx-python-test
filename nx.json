@@ -19,7 +19,8 @@
           "lint",
           "test",
           "e2e"
-        ]
+        ],
+        "parallel": 1
       }
     }
   },
@@ -31,9 +32,7 @@
       }
     ]
   },
-  "projects": {
-    "flasktest": {
-      "tags": []
-    }
+  "cli": {
+    "defaultCollection": "@nrwl/workspace"
   }
 }

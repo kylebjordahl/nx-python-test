@@ -11,9 +11,9 @@
   "devDependencies": {
     "@angular-devkit/core": "^13.1.2",
     "@angular-devkit/schematics": "^13.1.2",
-    "@nrwl/cli": "12.10.1",
-    "@nrwl/tao": "12.10.1",
-    "@nrwl/workspace": "12.10.1",
+    "@nrwl/cli": "13.3.12",
+    "@nrwl/tao": "13.3.12",
+    "@nrwl/workspace": "13.3.12",
     "@nx-python/nx-python": "^1.0.3",
     "@types/node": "14.14.33",
     "prettier": "^2.3.1",
@@ -21,3 +21,4 @@
   },
   "dependencies": {}
 }
+
