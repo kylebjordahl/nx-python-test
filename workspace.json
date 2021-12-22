@@ -1,4 +1,42 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "web-server": {
+      "projectType": "application",
+      "root": "apps/web/server",
+      "sourceRoot": "apps/web/server/src",
+      "targets": {
+        "build": {
+          "executor": "@nx-python/nx-python:build",
+          "options": {
+            "outputPath": "dist/apps/web/server",
+            "main": "apps/web/server/src/hello.py",
+            "templateType": "flask"
+          }
+        },
+        "serve": {
+          "executor": "@nx-python/nx-python:serve",
+          "options": {
+            "main": "apps/web/server/src/hello.py",
+            "templateType": "flask"
+          }
+        },
+        "test": {
+          "executor": "@nx-python/nx-python:test",
+          "options": {
+            "main": "apps/web/server/src/test_hello.py",
+            "templateType": "flask"
+          }
+        },
+        "lint": {
+          "executor": "@nx-python/nx-python:lint",
+          "options": {
+            "main": "apps/web/server/src/hello.py",
+            "templateType": "flask"
+          }
+        }
+      },
+      "tags": []
+    }
+  }
 }
