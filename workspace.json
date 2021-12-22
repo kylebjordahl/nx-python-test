@@ -1,130 +1,44 @@
 {
   "version": 2,
   "projects": {
-    "frontend": {
-      "root": "apps/frontend",
-      "sourceRoot": "apps/frontend/src",
+    "flasktest": {
       "projectType": "application",
+      "root": "apps/flasktest",
+      "sourceRoot": "apps/flasktest/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "executor": "@nx-python/nx-python:build",
           "options": {
-            "outputPath": "dist/apps/frontend",
-            "index": "apps/frontend/src/index.html",
-            "baseHref": "/",
-            "main": "apps/frontend/src/main.tsx",
-            "polyfills": "apps/frontend/src/polyfills.ts",
-            "tsConfig": "apps/frontend/tsconfig.app.json",
-            "assets": [
-              "apps/frontend/src/favicon.ico",
-              "apps/frontend/src/assets"
-            ],
-            "styles": [],
-            "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/frontend/src/environments/environment.ts",
-                  "with": "apps/frontend/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                }
-              ]
-            }
+            "outputPath": "dist/apps/flasktest",
+            "main": "apps/flasktest/src/hello.py",
+            "templateType": "flask"
           }
         },
         "serve": {
-          "executor": "@nrwl/web:dev-server",
+          "executor": "@nx-python/nx-python:serve",
           "options": {
-            "buildTarget": "frontend:build",
-            "hmr": true
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "frontend:build:production",
-              "hmr": false
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/frontend/**/*.{ts,tsx,js,jsx}"]
+            "main": "apps/flasktest/src/hello.py",
+            "templateType": "flask"
           }
         },
         "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/frontend"],
+          "executor": "@nx-python/nx-python:test",
           "options": {
-            "jestConfig": "apps/frontend/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "frontend-e2e": {
-      "root": "apps/frontend-e2e",
-      "sourceRoot": "apps/frontend-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/frontend-e2e/cypress.json",
-            "devServerTarget": "frontend:serve",
-            "tsConfig": "apps/frontend-e2e/tsconfig.json"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "frontend:serve:production"
-            }
+            "main": "apps/flasktest/src/test_hello.py",
+            "templateType": "flask"
           }
         },
         "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "executor": "@nx-python/nx-python:lint",
           "options": {
-            "lintFilePatterns": ["apps/frontend-e2e/**/*.{js,ts}"]
+            "main": "apps/flasktest/src/hello.py",
+            "templateType": "flask"
           }
         }
       }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "style": "styled-components",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "styled-components"
-      },
-      "library": {
-        "style": "styled-components",
-        "linter": "eslint"
-      }
-    }
-  },
-  "defaultProject": "frontend"
+    "defaultCollection": "@nrwl/workspace"
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "npmScope": "py-mono-test",
+  "npmScope": "py-mono-scaffold",
   "affected": {
     "defaultBase": "master"
   },
@@ -14,7 +14,12 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -27,12 +32,8 @@
     ]
   },
   "projects": {
-    "frontend": {
+    "flasktest": {
       "tags": []
-    },
-    "frontend-e2e": {
-      "tags": [],
-      "implicitDependencies": ["frontend"]
     }
   }
 }
